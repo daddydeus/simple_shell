@@ -17,7 +17,7 @@ r_variable *add_rvariable_node(r_variable **header, int length_of_var, char *var
 	if (current == NULL)
 		return (NULL);
 
-	current->len_variable = length_of_var;
+	current->length_of_variable = length_of_var;
 	current->variable_value = variable_value;
 	current->length_of_variable_value = length_of_val;
 

@@ -59,7 +59,7 @@ int main(int argument_count, char **argument_vect)
 	data_in_shellby shellby_data_store;
 	(void) argument_count;
 
-	signal(SIGNED_INT, get_signed_int);
+	signal(SIGINT, get_signed_int);
 	set_shellby_data(&shellby_data_store, argument_vect);
 	shell_loop(&shellby_data_store);
 	free_shellby_data(&shellby_data_store);

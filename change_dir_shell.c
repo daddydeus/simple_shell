@@ -5,7 +5,7 @@
  * @shellby_data_store: This is the container with the relevant data
  * Return: 1 on success
  */
-int change_dir_shell(data_shell *shellby_data_store)
+int change_dir_shell(data_in_shellby *shellby_data_store)
 {
 	char *dir;
 	int to_home, to_home2, to_double_dash;

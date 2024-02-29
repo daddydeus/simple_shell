@@ -13,7 +13,7 @@ int get_error(data_in_shellby *shellby_data_store, int error_value)
 	switch (error_value)
 	{
 	case -1:
-		error = error_envionment(shellby_data_store);
+		error = error_environment(shellby_data_store);
 		break;
 	case 126:
 		error = error_path_126(shellby_data_store);

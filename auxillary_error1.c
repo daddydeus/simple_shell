@@ -48,7 +48,7 @@ char *error_get_change_dir(data_in_shellby *shellby_data_store)
 	int length, length_id;
 	char *error, *version_string, *on_screen;
 
-	version_string = auxillary_itoa(shellby_data_store->counter);
+	version_string = auxillary_itoa(shellby_data_store->count);
 	if (shellby_data_store->arguments[1][0] == '-')
 	{
 		on_screen = ": Unacceptable entry ";
@@ -88,7 +88,7 @@ char *error_not_found(data_in_shellby *shellby_data_store)
 	char *error;
 	char *version_string;
 
-	version_string = auxillary_itoa(shellby_data_store->counter);
+	version_string = auxillary_itoa(shellby_data_store->count);
 	length = _strlen(shellby_data_store->argument_vect[0]) + _strlen(version_string);
 	length += _strlen(shellby_data_store->arguments[0]) + 16;
 	error = malloc(sizeof(char) * (length + 1));
@@ -121,7 +121,7 @@ char *error_exit_shellby(data_in_shellby *shellby_data_store)
 	char *error;
 	char *version_string;
 
-	version_string = auxillary_itoa(shellby_data_store->counter);
+	version_string = auxillary_itoa(shellby_data_store->count);
 	length = _strlen(shellby_data_store->argument_vect[0]) + _strlen(version_string);
 	length += _strlen(shellby_data_store->arguments[0]) + _strlen(shellby_data_store->arguments[1]) + 23;
 	error = malloc(sizeof(char) * (length + 1));

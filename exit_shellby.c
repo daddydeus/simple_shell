@@ -5,7 +5,7 @@
  * @shellby_data_store: This is the data on last_status and arguments
  * Return: 0 on success.
  */
-int exit_shell(data_shell *shellby_data_store)
+int exit_shell(data_in_shellby *shellby_data_store)
 {
 	unsigned int stat_us;
 	int is_digit;

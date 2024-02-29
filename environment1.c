@@ -70,7 +70,7 @@ int _environment(data_in_shellby *shellby_data_store)
 		write(STDOUT_FILENO, shellby_data_store->_environment[i], j_shellby);
 		write(STDOUT_FILENO, "\n", 1);
 	}
-	shellby_data_store->status = 0;
+	shellby_data_store->last.status = 0;
 
 	return (1);
 }

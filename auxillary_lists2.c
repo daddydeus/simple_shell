@@ -21,7 +21,7 @@ r_variable *add_rvariable_node(r_variable **header, int length_of_var, char *var
 	current->variable_value = variable_value;
 	current->length_of_variable_value = length_of_val;
 
-	current->next = NULL;
+	current->nextn = NULL;
 	temporary = *header;
 
 	if (temporary == NULL)
@@ -30,9 +30,9 @@ r_variable *add_rvariable_node(r_variable **header, int length_of_var, char *var
 	}
 	else
 	{
-		while (temporary->next != NULL)
-			temporary = temporary->next;
-		temporary->next = current;
+		while (temporary->nextn != NULL)
+			temporary = temporary->nextn;
+		temporary->nextn = current;
 	}
 
 	return (*header);
@@ -53,7 +53,7 @@ void free_rvariable_list(r_variable **header)
 		curr_ent = *header;
 		while ((temporary = curr_ent) != NULL)
 		{
-			curr_ent = curr_ent->next;
+			curr_ent = curr_ent->nextn;
 			free(temporary);
 		}
 		*header = NULL;

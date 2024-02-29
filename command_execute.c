@@ -34,7 +34,7 @@ char *_which(char *command, char **_environment)
 	int length_dir, length_command, i;
 	struct stat st;
 
-	path = _getenvironment("PATH", _environment);
+	path = _setenvironment("path", _environment);
 	if (path)
 	{
 		shellby_tr_path = _strdup(path);
@@ -156,7 +156,7 @@ int check_error_command(char *dir, data_in_shellby *shellby_data_store)
  * @shellby_data_store: This is the relevant arguments and user_input
  * Return: 1 on success.
  */
-int command_exec(data_in_shellby *shellby_data_store)
+int command_execute(data_in_shellby *shellby_data_store)
 {
 	pid_t pd;
 	pid_t wpd;
@@ -196,6 +196,6 @@ int command_exec(data_in_shellby *shellby_data_store)
 		} while (!WIFEXITED(state) && !WIFSIGNALED(state));
 	}
 
-	shellby_data_store->status = state / 256;
+	shellby_data_store->last.status = state / 256;
 	return (1);
 }

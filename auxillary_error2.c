@@ -12,7 +12,7 @@ char *error_environment(data_in_shellby *shellby_data_store)
 	char *version_string;
 	char *on_screen;
 
-	version_string = auxillary_itoa(shellby_data_store->counter);
+	version_string = auxillary_itoa(shellby_data_store->count);
 	on_screen = ": Unable to add/remove from environment\n";
 	length = _strlen(shellby_data_store->argument_vect[0]) + _strlen(version_string);
 	length += _strlen(shellby_data_store->arguments[0]) + _strlen(on_screen) + 4;
@@ -47,7 +47,7 @@ char *error_path_126(data_in_shellby *shellby_data_store)
 	char *version_string;
 	char *error;
 
-	version_string = auxillary_itoa(shellby_data_store->counter);
+	version_string = auxillary_itoa(shellby_data_store->count);
 	length = _strlen(shellby_data_store->argument_vect[0]) + _strlen(version_string);
 	length += _strlen(shellby_data_store->arguments[0]) + 24;
 	error = malloc(sizeof(char) * (length + 1));

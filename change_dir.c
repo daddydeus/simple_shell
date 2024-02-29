@@ -45,7 +45,7 @@ void change_dir_dot(data_in_shellby *shellby_data_store)
 		chdir("/");
 		set_environment("PWD", "/", shellby_data_store);
 	}
-	shellby_data_store->status = 0;
+	shellby_data_store->last.status = 0;
 	free(cp_pwdir);
 }
 
@@ -78,7 +78,7 @@ void change_dir_to(data_in_shellby *shellby_data_store)
 	free(cp_pwdir);
 	free(cp_dir);
 
-	shellby_data_store->status = 0;
+	shellby_data_store->last.status = 0;
 
 	chdir(dir);
 }
@@ -96,7 +96,7 @@ void change_dir_previous(data_in_shellby *shellby_data_store)
 	getcwd(pwdir, sizeof(pwdir));
 	cp_pwdir = _strdup(pwdir);
 
-	p_oldpwdir = _getenvironment("OLDPWD", shellby_data_store->_environment);
+	p_oldpwdir = _setenvironment("OLDPWD", shellby_data_store->_environment);
 
 	if (p_oldpwdir == NULL)
 		cp_oldpwdir = cp_pwdir;
@@ -110,7 +110,7 @@ void change_dir_previous(data_in_shellby *shellby_data_store)
 	else
 		set_environment("PWD", cp_oldpwdir, shellby_data_store);
 
-	p_pwdir = _getenvironment("PWD", shellby_data_store->_environment);
+	p_pwdir = _setenvironment("PWD", shellby_data_store->_environment);
 
 	write(STDOUT_FILENO, p_pwdir, _strlen(p_pwdir));
 	write(STDOUT_FILENO, "\n", 1);
@@ -119,7 +119,7 @@ void change_dir_previous(data_in_shellby *shellby_data_store)
 	if (p_oldpwdir)
 		free(cp_oldpwdir);
 
-	shellby_data_store->status = 0;
+	shellby_data_store->last.status = 0;
 
 	chdir(p_pwdir);
 }
@@ -137,7 +137,7 @@ void change_dir_to_home(data_in_shellby *shellby_data_store)
 	getcwd(pwdir, sizeof(pwdir));
 	p_pwdir = _strdup(pwdir);
 
-	home = _getenvironment("HOME", shellby_data_store->_environment);
+	home = _setenvironment("HOME", shellby_data_store->_environment);
 
 	if (home == NULL)
 	{
@@ -156,5 +156,5 @@ void change_dir_to_home(data_in_shellby *shellby_data_store)
 	set_environment("OLDPWD", p_pwdir, shellby_data_store);
 	set_environment("PWD", home, shellby_data_store);
 	free(p_pwdir);
-	shellby_data_store->status = 0;
+	shellby_data_store->last.status = 0;
 }

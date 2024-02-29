@@ -12,19 +12,19 @@ void bring_command_line(char **command_line_ptr, size_t *n, char *shellby_buffer
 
 	if (*command_line_ptr == NULL)
 	{
-		if  (j_shellby > BUFFERSIZE)
+		if  (j_shellby > BUFFER_SIZE)
 			*n = j_shellby;
 
 		else
-			*n = BUFFERSIZE;
+			*n = BUFFER_SIZE;
 		*command_line_ptr = shellby_buffer;
 	}
 	else if (*n < j_shellby)
 	{
-		if (j_shellby > BUFFERSIZE)
+		if (j_shellby > BUFFER_SIZE)
 			*n = j_shellby;
 		else
-			*n = BUFFERSIZE;
+			*n = BUFFER_SIZE;
 		*command_line_ptr = shellby_buffer;
 	}
 	else
@@ -54,7 +54,7 @@ ssize_t get_command_line(char **command_line_ptr, size_t *n, FILE *stream)
 		return (-1);
 	user_input = 0;
 
-	shellby_buffer = malloc(sizeof(char) * BUFFERSIZE);
+	shellby_buffer = malloc(sizeof(char) * BUFFER_SIZE);
 	if (shellby_buffer == 0)
 		return (-1);
 	while (t != '\n')
@@ -70,7 +70,7 @@ ssize_t get_command_line(char **command_line_ptr, size_t *n, FILE *stream)
 			user_input++;
 			break;
 		}
-		if (user_input >= BUFFERSIZE)
+		if (user_input >= BUFFER_SIZE)
 			shellby_buffer = _realloc(shellby_buffer, user_input, user_input + 1);
 		shellby_buffer[user_input] = t;
 		user_input++;

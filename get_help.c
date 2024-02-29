@@ -11,11 +11,11 @@ int get_help(data_in_shellby *shellby_data_store)
 	if (shellby_data_store->arguments[1] == 0)
 		auxillary_help_general();
 	else if (_strcmp(shellby_data_store->arguments[1], "setenvironment") == 0)
-		auxillary_help_setenvironment();
+		auxillary_help_environment();
 	else if (_strcmp(shellby_data_store->arguments[1], "environment") == 0)
 		auxillary_help_environment();
 	else if (_strcmp(shellby_data_store->arguments[1], "unsetenvironment") == 0)
-		auxillary_help_unsetenvironment();
+		auxillary_help_environment();
 	else if (_strcmp(shellby_data_store->arguments[1], "help") == 0)
 		auxillary_help();
 	else if (_strcmp(shellby_data_store->arguments[1], "exit") == 0)
